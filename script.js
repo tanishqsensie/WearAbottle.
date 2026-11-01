@@ -1,7 +1,7 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * WearBottle - Interactive Script
+ * WearABottle - Interactive Script
  * Pure Vanilla JavaScript (No external frameworks)
  */
 
@@ -331,7 +331,9 @@ function initModals() {
 
   closeBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      if (e.target === btn) {
+      const clickedCloseButton = btn.classList.contains('modal-close-btn');
+      const clickedBackdrop = e.target === btn && btn.classList.contains('modal-overlay');
+      if (clickedCloseButton || clickedBackdrop) {
         orderModal?.classList.remove('active');
         demoModal?.classList.remove('active');
         document.body.style.overflow = '';
